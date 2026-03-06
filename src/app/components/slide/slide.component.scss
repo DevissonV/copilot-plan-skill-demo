@@ -671,6 +671,9 @@ $radius-sm: var(--radius-sm);
     text-align: left;
     width: 100%;
     box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
@@ -713,9 +716,18 @@ $radius-sm: var(--radius-sm);
     font-size: 0.7rem;
     font-family: var(--font-code);
     line-height: 1.6;
+    min-width: 0;
 
     &.pl1 { padding-left: 14px; }
     &.pl2 { padding-left: 28px; }
+  }
+
+  .tree-folder,
+  .tree-file {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .tree-folder { color: #93C5FD; font-weight: 600; }
@@ -1222,6 +1234,10 @@ $radius-sm: var(--radius-sm);
     height: 100%;
   }
 
+  .slide[data-type='case-study'] {
+    padding: 24px 12px 122px;
+  }
+
   .slide {
     height: auto;
     max-height: none;
@@ -1237,12 +1253,28 @@ $radius-sm: var(--radius-sm);
     flex-direction: column;
   }
 
+  .cs-flow {
+    gap: 10px;
+  }
+
   .intro-card-arrow,
-  .flow-arrow,
-  .cs-flow-arrow {
+  .flow-arrow {
     transform: rotate(90deg);
     padding: 0;
     margin: 0;
+  }
+
+  .cs-flow-arrow {
+    display: none;
+  }
+
+  .cs-flow-node {
+    padding: 16px 12px 12px;
+  }
+
+  .cs-flow-node .csn-mini-prompt {
+    font-size: 0.66rem;
+    line-height: 1.4;
   }
 
   .gen-cards,
@@ -1262,9 +1294,31 @@ $radius-sm: var(--radius-sm);
 }
 
 @media (max-width: 560px) {
+  .slide[data-type='case-study'] {
+    padding: 18px 8px 126px;
+  }
+
   .slide {
     min-height: calc(100dvh - 48px);
     padding: 22px 10px 126px;
+  }
+
+  .scenario-bar {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .scenario-bar .stag {
+    font-size: 0.62rem;
+    padding: 2px 7px;
+  }
+
+  .cs-flow-node .csn-mini-prompt {
+    font-size: 0.62rem;
+  }
+
+  .arch-box .tree-line {
+    font-size: 0.64rem;
   }
 
   .cover-hint {
