@@ -1,0 +1,632 @@
+<div class="slide" [class.animate]="animating" [attr.data-type]="slide.type">
+
+  <!-- ═══════════════════════════════════════════ COVER ══ -->
+  <ng-container *ngIf="slide.type === 'cover'">
+    <div class="cover-layout">
+      <div class="cover-icon">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#EEF4FF" stroke="#0070F3" stroke-width="3"/>
+          <!-- Brain nodes -->
+          <circle cx="60" cy="38" r="7" fill="#0070F3" class="pulse-node"/>
+          <circle cx="38" cy="56" r="6" fill="#0070F3" class="pulse-node" style="animation-delay:.3s"/>
+          <circle cx="82" cy="56" r="6" fill="#0070F3" class="pulse-node" style="animation-delay:.6s"/>
+          <circle cx="44" cy="78" r="6" fill="#3B9EFF" class="pulse-node" style="animation-delay:.9s"/>
+          <circle cx="76" cy="78" r="6" fill="#3B9EFF" class="pulse-node" style="animation-delay:1.2s"/>
+          <circle cx="60" cy="90" r="7" fill="#0070F3" class="pulse-node" style="animation-delay:1.5s"/>
+          <!-- Connections -->
+          <line x1="60" y1="45" x2="38" y2="56" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="60" y1="45" x2="82" y2="56" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="38" y1="62" x2="44" y2="78" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="82" y1="62" x2="76" y2="78" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="44" y1="84" x2="60" y2="90" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="76" y1="84" x2="60" y2="90" stroke="#0070F3" stroke-width="1.5" opacity=".5"/>
+          <line x1="38" y1="56" x2="82" y2="56" stroke="#0070F3" stroke-width="1" opacity=".3"/>
+          <line x1="44" y1="78" x2="76" y2="78" stroke="#0070F3" stroke-width="1" opacity=".3"/>
+        </svg>
+      </div>
+      <h1 class="cover-title">{{ slide.title }}</h1>
+      <p class="cover-subtitle">{{ slide.subtitle }}</p>
+      <div class="cover-hint">
+        <span>Usa</span>
+        <kbd>←</kbd> <kbd>→</kbd>
+        <span>para navegar</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ═══════════════════════════════════════════ INTRO ══ -->
+  <ng-container *ngIf="slide.type === 'intro'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">01 / Introducción</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+      <div class="intro-cards">
+        <div class="intro-card stagger-1">
+          <div class="intro-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="18" r="10" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <path d="M14 36c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="18" r="4" fill="#0070F3"/>
+            </svg>
+          </div>
+          <h3>El ser humano aprende</h3>
+          <p>Observando, leyendo y practicando, acumulas experiencia y tomas mejores decisiones.</p>
+        </div>
+        <div class="intro-card-arrow stagger-2">
+          <svg viewBox="0 0 40 20" fill="none">
+            <path d="M0 10 H32 M24 2 l8 8 -8 8" stroke="#0070F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>analogía</span>
+        </div>
+        <div class="intro-card stagger-3">
+          <div class="intro-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="12" width="32" height="24" rx="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <circle cx="24" cy="24" r="5" fill="#0070F3"/>
+              <circle cx="16" cy="20" r="2.5" fill="#3B9EFF"/>
+              <circle cx="32" cy="20" r="2.5" fill="#3B9EFF"/>
+              <circle cx="16" cy="28" r="2.5" fill="#3B9EFF"/>
+              <circle cx="32" cy="28" r="2.5" fill="#3B9EFF"/>
+              <line x1="18.5" y1="20" x2="21.5" y2="22" stroke="#0070F3" stroke-width="1"/>
+              <line x1="29.5" y1="20" x2="26.5" y2="22" stroke="#0070F3" stroke-width="1"/>
+              <line x1="18.5" y1="28" x2="21.5" y2="26" stroke="#0070F3" stroke-width="1"/>
+              <line x1="29.5" y1="28" x2="26.5" y2="26" stroke="#0070F3" stroke-width="1"/>
+            </svg>
+          </div>
+          <h3>La IA también aprende</h3>
+          <p>Procesa millones de ejemplos (textos, imágenes, datos) y extrae patrones para responder situaciones nuevas.</p>
+        </div>
+      </div>
+      <div class="intro-definition stagger-4">
+        <strong>IA =</strong> Software que <em>aprende de datos</em> para realizar tareas que antes solo podían hacer los humanos.
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ════════════════════════════════════ HOW IT WORKS ══ -->
+  <ng-container *ngIf="slide.type === 'how-it-works'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">02 / Cómo funciona</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+      <div class="flow-diagram">
+        <div class="flow-step stagger-1">
+          <div class="flow-icon input">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="10" width="32" height="28" rx="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <line x1="16" y1="18" x2="32" y2="18" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+              <line x1="16" y1="24" x2="28" y2="24" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+              <line x1="16" y1="30" x2="24" y2="30" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="flow-label">Datos de entrada</span>
+          <small>Texto, imágenes, código…</small>
+        </div>
+        <div class="flow-arrow stagger-2">
+          <svg viewBox="0 0 50 20" fill="none">
+            <path d="M0 10 H40 M32 2 l8 8 -8 8" stroke="#0070F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="flow-step stagger-3">
+          <div class="flow-icon model">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="16" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <circle cx="24" cy="24" r="6" fill="#0070F3"/>
+              <circle cx="24" cy="10" r="3" fill="#3B9EFF"/>
+              <circle cx="24" cy="38" r="3" fill="#3B9EFF"/>
+              <circle cx="10" cy="24" r="3" fill="#3B9EFF"/>
+              <circle cx="38" cy="24" r="3" fill="#3B9EFF"/>
+              <line x1="24" y1="13" x2="24" y2="18" stroke="#0070F3" stroke-width="1.5"/>
+              <line x1="24" y1="30" x2="24" y2="35" stroke="#0070F3" stroke-width="1.5"/>
+              <line x1="13" y1="24" x2="18" y2="24" stroke="#0070F3" stroke-width="1.5"/>
+              <line x1="30" y1="24" x2="35" y2="24" stroke="#0070F3" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="flow-label">Modelo de IA</span>
+          <small>Procesa y predice</small>
+        </div>
+        <div class="flow-arrow stagger-4">
+          <svg viewBox="0 0 50 20" fill="none">
+            <path d="M0 10 H40 M32 2 l8 8 -8 8" stroke="#0070F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="flow-step stagger-5">
+          <div class="flow-icon output">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="10" width="32" height="28" rx="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <path d="M16 24 l5 5 11-10" stroke="#0070F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="flow-label">Resultado</span>
+          <small>Respuesta, imagen, código…</small>
+        </div>
+      </div>
+      <div class="training-note stagger-5">
+        <svg viewBox="0 0 20 20" fill="none" width="20" height="20">
+          <circle cx="10" cy="10" r="9" stroke="#0070F3" stroke-width="1.5"/>
+          <path d="M10 6v5M10 14h.01" stroke="#0070F3" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>El modelo aprende ajustando millones de parámetros internos durante el <strong>entrenamiento</strong>, antes de llegar a ti.</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ══════════════════════════════════ GENERATIVE AI ══ -->
+  <ng-container *ngIf="slide.type === 'generative-ai'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">03 / IA Generativa</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+      <div class="gen-cards">
+        <div class="gen-card stagger-1">
+          <div class="gen-card-header llm">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40">
+              <rect x="4" y="8" width="32" height="24" rx="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <path d="M10 16 Q20 10 30 16" stroke="#0070F3" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M10 22 Q20 16 30 22" stroke="#3B9EFF" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M10 28 Q20 22 30 28" stroke="#0070F3" stroke-width="1" fill="none" stroke-linecap="round" opacity=".5"/>
+            </svg>
+            <span>LLM</span>
+          </div>
+          <h3>Large Language Model</h3>
+          <p>Modelo entrenado con enormes cantidades de texto. Predice la siguiente palabra para generar respuestas coherentes.</p>
+          <div class="gen-card-examples">
+            <span>GPT-4o</span><span>Claude</span><span>Gemini</span>
+          </div>
+        </div>
+        <div class="gen-card stagger-2">
+          <div class="gen-card-header model">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40">
+              <circle cx="20" cy="20" r="14" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <polygon points="20,10 26,18 20,14 14,18" fill="#0070F3" opacity=".7"/>
+              <polygon points="20,30 26,22 20,26 14,22" fill="#3B9EFF" opacity=".7"/>
+              <circle cx="20" cy="20" r="3" fill="#0070F3"/>
+            </svg>
+            <span>Modelo</span>
+          </div>
+          <h3>Modelo de IA</h3>
+          <p>Archivo matemático entrenado para una tarea específica. Puede generar texto, imágenes, código o audio.</p>
+          <div class="gen-card-examples">
+            <span>DALL-E</span><span>Stable Diffusion</span><span>Whisper</span>
+          </div>
+        </div>
+        <div class="gen-card stagger-3">
+          <div class="gen-card-header agent">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40">
+              <circle cx="20" cy="14" r="7" fill="#EEF4FF" stroke="#0070F3" stroke-width="2"/>
+              <circle cx="20" cy="14" r="3" fill="#0070F3"/>
+              <path d="M10 34c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="30" cy="28" r="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.5"/>
+              <path d="M28.5 28 h3 M30 26.5 v3" stroke="#0070F3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Agente</span>
+          </div>
+          <h3>Agente de IA</h3>
+          <p>IA que no solo responde, sino que <em>actúa</em>: usa herramientas, navega la web, ejecuta código para cumplir un objetivo.</p>
+          <div class="gen-card-examples">
+            <span>Copilot Agent</span><span>AutoGPT</span><span>Devin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ══════════════════════════════════ COPILOT TOUR ════ -->
+  <ng-container *ngIf="slide.type === 'copilot-tour'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">04 / Tour Copilot</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+
+      <!-- Mode selector pill bar (decorative reference) -->
+      <div class="copilot-mode-bar stagger-1">
+        <span class="mode-pill active">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Ask
+        </span>
+        <span class="mode-pill">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Edit
+        </span>
+        <span class="mode-pill highlight">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 14c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="12" cy="11" r="2.5" fill="currentColor" opacity=".7"/>
+            <path d="M11.3 11h1.4M12 10.3v1.4" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          Agent
+        </span>
+      </div>
+
+      <!-- Feature grid -->
+      <div class="copilot-grid">
+
+        <!-- Modo Chat -->
+        <div class="copilot-card stagger-1">
+          <div class="copilot-card-icon chat-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="6" width="32" height="22" rx="5" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.8"/>
+              <circle cx="12" cy="17" r="2.5" fill="#0070F3"/>
+              <circle cx="20" cy="17" r="2.5" fill="#0070F3"/>
+              <circle cx="28" cy="17" r="2.5" fill="#0070F3"/>
+              <path d="M12 28l4-6h14" stroke="#0070F3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge ask">Ask / Chat</div>
+            <h3>Modo Chat</h3>
+            <p>Pregunta en lenguaje natural. Copilot responde con explicaciones, código o documentación.</p>
+            <div class="copilot-card-hint"><code>@workspace</code> · <code>#file</code> · <code>#selection</code></div>
+          </div>
+        </div>
+
+        <!-- Modo Agent -->
+        <div class="copilot-card stagger-2">
+          <div class="copilot-card-icon agent-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="14" r="8" fill="#F0FDF4" stroke="#10B981" stroke-width="1.8"/>
+              <circle cx="20" cy="14" r="3.5" fill="#10B981"/>
+              <path d="M10 34c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- action sparks -->
+              <path d="M30 8 l2-3 1 2.5 3-1-2 2.5" stroke="#10B981" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge agent">Agent Mode</div>
+            <h3>Modo Agente</h3>
+            <p>Copilot actúa de forma autónoma: lee archivos, genera código, ejecuta tests y aplica cambios.</p>
+            <div class="copilot-card-hint">Planifica → Ejecuta → Verifica → Itera</div>
+          </div>
+        </div>
+
+        <!-- Agentes personalizados -->
+        <div class="copilot-card stagger-3">
+          <div class="copilot-card-icon custom-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="32" height="24" rx="5" fill="#FFF7ED" stroke="#F97316" stroke-width="1.8"/>
+              <circle cx="13" cy="16" r="4" fill="#FED7AA" stroke="#F97316" stroke-width="1.5"/>
+              <circle cx="13" cy="16" r="1.5" fill="#F97316"/>
+              <line x1="20" y1="14" x2="32" y2="14" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="19" x2="30" y2="19" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="13" cy="28" r="4" fill="#FED7AA" stroke="#F97316" stroke-width="1.5"/>
+              <circle cx="13" cy="28" r="1.5" fill="#F97316"/>
+              <line x1="20" y1="26" x2="32" y2="26" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="31" x2="28" y2="31" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge custom">Custom Agents</div>
+            <h3>Agentes personalizados</h3>
+            <p>Define tu propio agente con un rol, instrucciones y herramientas específicas para tu equipo.</p>
+            <div class="copilot-card-hint">Archivo <code>.github/copilot-instructions.md</code></div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="copilot-card stagger-3">
+          <div class="copilot-card-icon tools-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28 8 a8 8 0 0 1 4 14l-14 14-6-6 14-14A8 8 0 0 1 28 8z" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="27" cy="13" r="2" fill="#7C3AED"/>
+              <line x1="8" y1="32" x2="12" y2="28" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge tools">Tools</div>
+            <h3>Herramientas (Tools)</h3>
+            <p>Capacidades que el agente puede invocar: terminal, navegador, búsqueda, APIs externas y más.</p>
+            <div class="copilot-card-hint">
+              <span class="mini-tag">Terminal</span>
+              <span class="mini-tag">Browser</span>
+              <span class="mini-tag">File I/O</span>
+              <span class="mini-tag">MCP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contexto -->
+        <div class="copilot-card stagger-4">
+          <div class="copilot-card-icon context-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="28" height="28" rx="5" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.8"/>
+              <!-- hashtag symbol -->
+              <line x1="15" y1="13" x2="13" y2="27" stroke="#E11D48" stroke-width="2" stroke-linecap="round"/>
+              <line x1="22" y1="13" x2="20" y2="27" stroke="#E11D48" stroke-width="2" stroke-linecap="round"/>
+              <line x1="11" y1="18" x2="24" y2="18" stroke="#E11D48" stroke-width="2" stroke-linecap="round"/>
+              <line x1="10" y1="23" x2="23" y2="23" stroke="#E11D48" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge context">Contexto</div>
+            <h3>Variables de contexto</h3>
+            <p>Indica exactamente qué información debe tener Copilot al responder usando variables <code>#</code>.</p>
+            <div class="copilot-card-hint">
+              <span class="mini-tag">#file</span>
+              <span class="mini-tag">#editor</span>
+              <span class="mini-tag">#codebase</span>
+              <span class="mini-tag">#terminal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ventana de contexto -->
+        <div class="copilot-card stagger-5">
+          <div class="copilot-card-icon window-color">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- window frame -->
+              <rect x="4" y="8" width="32" height="24" rx="4" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8"/>
+              <!-- gradient fill bar representing token usage -->
+              <rect x="8" y="14" width="24" height="4" rx="2" fill="#BAE6FD"/>
+              <rect x="8" y="14" width="16" height="4" rx="2" fill="#0284C7"/>
+              <text x="8" y="26" font-size="5" fill="#0284C7" font-family="monospace">16k / 128k tokens</text>
+              <text x="8" y="31" font-size="4.5" fill="#64748B" font-family="monospace">Conversación activa</text>
+            </svg>
+          </div>
+          <div class="copilot-card-body">
+            <div class="copilot-card-badge window">Contexto Window</div>
+            <h3>Ventana de contexto</h3>
+            <p>Cantidad de texto que el modelo "recuerda" en cada conversación. Se mide en <em>tokens</em>.</p>
+            <div class="copilot-card-hint">GPT-4o: <strong>128k</strong> · Claude: <strong>200k</strong> tokens</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ══════════════════════════════════ CASE STUDY ═════ -->
+  <ng-container *ngIf="slide.type === 'case-study'">
+    <div class="default-layout case-wide">
+
+      <div class="slide-header">
+        <span class="slide-tag">05 / Caso Práctico</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+
+      <!-- Scenario strip -->
+      <div class="scenario-bar stagger-1">
+        <div class="scenario-text">
+          <strong>Escenario:</strong> CRUD de Usuarios con <em>Angular 21</em>, signals y diseño limpio — generado por GitHub Copilot.
+        </div>
+        <div class="scenario-tags">
+          <span class="stag">Angular 21</span>
+          <span class="stag">Standalone</span>
+          <span class="stag">Signals</span>
+          <span class="stag">Plan Mode</span>
+          <span class="stag">Design Skill</span>
+        </div>
+      </div>
+
+      <!-- 3-step horizontal flow -->
+      <div class="cs-flow stagger-2">
+        <div class="cs-flow-node">
+          <div class="csn-num">1</div>
+          <div class="csn-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect x="4" y="4" width="32" height="32" rx="8" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.8"/>
+              <path d="M11 14h18M11 20h12M11 26h14" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="csn-title">Plan Mode</div>
+          <div class="csn-desc">Activa el modo <strong>Plan</strong> en el panel de chat de VS Code</div>
+        </div>
+        <div class="cs-flow-arrow">
+          <svg viewBox="0 0 40 20" fill="none" width="40" height="20">
+            <path d="M0 10 H32 M24 2 l8 8 -8 8" stroke="#0070F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="cs-flow-node">
+          <div class="csn-num">2</div>
+          <div class="csn-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect x="4" y="4" width="32" height="32" rx="8" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.8"/>
+              <path d="M14 10h8l8 8v14a2 2 0 01-2 2H14a2 2 0 01-2-2V12a2 2 0 012-2z" stroke="#0070F3" stroke-width="1.8" fill="none"/>
+              <path d="M22 10v8h8" stroke="#0070F3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="csn-title">Adjunta la Skill</div>
+          <div class="csn-desc"><code>#file:.github/skills/frontend-design/SKILL.md</code></div>
+          <a class="csn-url" href="https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md" target="_blank" rel="noopener">github.com/anthropics/skills</a>
+        </div>
+        <div class="cs-flow-arrow">
+          <svg viewBox="0 0 40 20" fill="none" width="40" height="20">
+            <path d="M0 10 H32 M24 2 l8 8 -8 8" stroke="#0070F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="cs-flow-node">
+          <div class="csn-num">3</div>
+          <div class="csn-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect x="4" y="4" width="32" height="32" rx="8" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.8"/>
+              <path d="M13 27l-3 3 3-3 14-14" stroke="#0070F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 30l3-3" stroke="#0070F3" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="30" cy="10" r="4" fill="#EEF4FF" stroke="#0070F3" stroke-width="1.8"/>
+              <path d="M28 10h4M30 8v4" stroke="#0070F3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="csn-title">Describe y lanza</div>
+          <div class="csn-mini-prompt">"Crea un CRUD de Usuarios con Angular 21, signals y diseño limpio"</div>
+        </div>
+      </div>
+
+      <!-- Result: arch + tips -->
+      <div class="case-body stagger-3">
+        <div class="arch-box">
+          <div class="arch-header">
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+              <rect x="1" y="1" width="6" height="6" rx="1.5" stroke="#0070F3" stroke-width="1.4"/>
+              <rect x="9" y="1" width="6" height="6" rx="1.5" stroke="#0070F3" stroke-width="1.4"/>
+              <rect x="1" y="9" width="6" height="6" rx="1.5" stroke="#0070F3" stroke-width="1.4"/>
+              <rect x="9" y="9" width="6" height="6" rx="1.5" stroke="#3B9EFF" stroke-width="1.4" stroke-dasharray="2 1"/>
+            </svg>
+            Arquitectura generada
+          </div>
+          <div class="arch-tree">
+            <div class="tree-line"><span class="tree-folder">src/app/</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">core/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">models/user.model.ts</span></div>
+            <div class="tree-line pl2"><span class="tree-file">services/users.service.ts</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">features/users/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">users-list.component.ts</span></div>
+            <div class="tree-line pl2"><span class="tree-file">user-form.component.ts</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">shared/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">components/ · pipes/</span></div>
+          </div>
+        </div>
+
+        <div class="tips-box">
+          <div class="tip-item">✅ Revisa cada archivo antes de aplicar</div>
+          <div class="tip-item">✅ Usa <code>Keep</code> / <code>Discard</code> en cada diff</div>
+          <div class="tip-item">⚠️ Itera con follow-ups si falta algo</div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+
+  <!-- ═══════════════════════════════════ PROMPTING ═════ -->
+  <ng-container *ngIf="slide.type === 'prompting'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">06 / Prompting</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+      <div class="prompt-techniques">
+        <div class="prompt-card stagger-1">
+          <div class="prompt-badge">Básico</div>
+          <h3>Zero-shot</h3>
+          <p>Le pides algo directamente, sin ejemplos.</p>
+          <div class="prompt-example-box">
+            <span class="prompt-label">Prompt:</span>
+            <em>"Traduce 'Hello World' al español"</em>
+          </div>
+        </div>
+        <div class="prompt-card stagger-2">
+          <div class="prompt-badge">Intermedio</div>
+          <h3>Few-shot</h3>
+          <p>Das 2–3 ejemplos antes de tu petición real.</p>
+          <div class="prompt-example-box">
+            <span class="prompt-label">Prompt:</span>
+            <em>"Positivo → feliz. Negativo → triste. Neutral → …?"</em>
+          </div>
+        </div>
+        <div class="prompt-card stagger-3">
+          <div class="prompt-badge">Avanzado</div>
+          <h3>Chain of Thought</h3>
+          <p>Pides que razone paso a paso antes de responder.</p>
+          <div class="prompt-example-box">
+            <span class="prompt-label">Prompt:</span>
+            <em>"Piensa paso a paso y luego dame la respuesta"</em>
+          </div>
+        </div>
+      </div>
+      <div class="prompt-formula stagger-4">
+        <strong>Fórmula ganadora:</strong>
+        <div class="formula-pills">
+          <span class="pill role">Rol</span>
+          <span class="pill-plus">+</span>
+          <span class="pill context">Contexto</span>
+          <span class="pill-plus">+</span>
+          <span class="pill task">Tarea</span>
+          <span class="pill-plus">+</span>
+          <span class="pill format">Formato esperado</span>
+        </div>
+        <small>"Eres un experto en Python. Tengo una lista de números. Escribe una función para calcular la media. Devuelve solo el código sin explicación."</small>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ════════════════════════════════ RESPONSIBLE ══════ -->
+  <ng-container *ngIf="slide.type === 'responsible'">
+    <div class="default-layout">
+      <div class="slide-header">
+        <span class="slide-tag">07 / Uso responsable</span>
+        <h2>{{ slide.title }}</h2>
+        <p class="slide-lead">{{ slide.subtitle }}</p>
+      </div>
+      <div class="responsible-layout">
+        <div class="do-dont-col stagger-1">
+          <div class="col-header do-header">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
+              <circle cx="12" cy="12" r="10" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+              <path d="M7 12l3.5 3.5L17 9" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Buenas prácticas
+          </div>
+          <ul class="do-list">
+            <li>Revisa y valida siempre el output de la IA</li>
+            <li>Usa la IA como asistente, no como sustituto</li>
+            <li>Indica el contexto y propósito en tus prompts</li>
+            <li>Aprende del código que genera para mejorar tus habilidades</li>
+            <li>Respeta las políticas de privacidad de la herramienta</li>
+          </ul>
+        </div>
+        <div class="do-dont-divider"></div>
+        <div class="do-dont-col stagger-2">
+          <div class="col-header dont-header">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
+              <circle cx="12" cy="12" r="10" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+              <path d="M8 8l8 8M16 8l-8 8" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            Qué evitar
+          </div>
+          <ul class="dont-list">
+            <li>No compartas datos sensibles o contraseñas</li>
+            <li>No publiques código sin revisarlo antes</li>
+            <li>No confíes ciegamente en los resultados</li>
+            <li>No uses IA para engañar o suplantar identidades</li>
+            <li>No ignores el impacto ambiental y de sesgo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ═══════════════════════════════════ CLOSING ═══════ -->
+  <ng-container *ngIf="slide.type === 'closing'">
+    <div class="closing-layout">
+      <div class="closing-icon stagger-1">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" fill="#EEF4FF" stroke="#0070F3" stroke-width="2.5"/>
+          <path d="M24 40l10.5 10.5L56 29" stroke="#0070F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 class="closing-title stagger-1">{{ slide.title }}</h1>
+      <p class="closing-subtitle stagger-2">{{ slide.subtitle }}</p>
+      <div class="closing-recap stagger-2">
+        <div class="recap-pill">🧠 Qué es la IA</div>
+        <div class="recap-pill">⚙️ Cómo funciona</div>
+        <div class="recap-pill">✨ IA Generativa</div>
+        <div class="recap-pill">🤖 Copilot Chat</div>
+        <div class="recap-pill">🛠️ Caso práctico</div>
+        <div class="recap-pill">💬 Prompting</div>
+        <div class="recap-pill">🛡️ Uso responsable</div>
+      </div>
+      <div class="closing-resources stagger-3">
+        <h3>Recursos para seguir aprendiendo</h3>
+        <div class="resource-links">
+          <span class="resource-item">📘 docs.github.com/copilot</span>
+          <span class="resource-item">🎓 learn.microsoft.com/ai</span>
+          <span class="resource-item">🌐 openai.com/chatgpt</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

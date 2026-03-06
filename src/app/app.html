@@ -1,0 +1,52 @@
+<!-- Progress bar -->
+<div class="progress-bar">
+  <div class="progress-fill" [style.width.%]="progress"></div>
+</div>
+
+<!-- Slide counter -->
+<div class="slide-counter">
+  {{ currentIndex + 1 }} / {{ slides.length }}
+</div>
+
+<!-- Main slide area -->
+<main class="slide-stage">
+  <app-slide
+    [slide]="current"
+    [visible]="true"
+  ></app-slide>
+</main>
+
+<!-- Navigation arrows -->
+<nav class="nav-arrows">
+  <button
+    class="nav-btn"
+    (click)="prev()"
+    [disabled]="currentIndex === 0"
+    aria-label="Slide anterior"
+  >
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button
+    class="nav-btn"
+    (click)="next()"
+    [disabled]="currentIndex === slides.length - 1"
+    aria-label="Slide siguiente"
+  >
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+      <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- Dot navigation -->
+<div class="dot-nav">
+  <button
+    *ngFor="let s of slides; let i = index"
+    class="dot"
+    [class.active]="i === currentIndex"
+    (click)="goTo(i)"
+    [attr.aria-label]="'Ir a slide ' + (i + 1)"
+  ></button>
+</div>
