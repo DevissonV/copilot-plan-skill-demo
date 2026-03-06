@@ -460,7 +460,7 @@
             </svg>
           </div>
           <div class="csn-title">Describe y lanza</div>
-          <div class="csn-mini-prompt">"Crea un CRUD de Usuarios con Angular 21, signals y diseño limpio"</div>
+          <div class="csn-mini-prompt">"Crea un CRUD basico de Usuarios en Angular 21, sin backend y usando localStorage. Usa obligatoriamente este formato de salida: 1) arbol EXACTO de archivos: src/app/models/user.model.ts, src/app/services/users-storage.service.ts, src/app/components/users-list.component.ts, src/app/components/user-form.component.ts, src/app/pages/users-page.component.ts; 2) codigo archivo por archivo; 3) checklist final de validacion."</div>
         </div>
       </div>
 
@@ -478,18 +478,21 @@
           </div>
           <div class="arch-tree">
             <div class="tree-line"><span class="tree-folder">src/app/</span></div>
-            <div class="tree-line pl1"><span class="tree-folder">core/</span></div>
-            <div class="tree-line pl2"><span class="tree-file">models/user.model.ts</span></div>
-            <div class="tree-line pl2"><span class="tree-file">services/users.service.ts</span></div>
-            <div class="tree-line pl1"><span class="tree-folder">features/users/</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">models/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">user.model.ts</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">services/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">users-storage.service.ts</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">components/</span></div>
             <div class="tree-line pl2"><span class="tree-file">users-list.component.ts</span></div>
             <div class="tree-line pl2"><span class="tree-file">user-form.component.ts</span></div>
-            <div class="tree-line pl1"><span class="tree-folder">shared/</span></div>
-            <div class="tree-line pl2"><span class="tree-file">components/ · pipes/</span></div>
+            <div class="tree-line pl1"><span class="tree-folder">pages/</span></div>
+            <div class="tree-line pl2"><span class="tree-file">users-page.component.ts</span></div>
           </div>
         </div>
 
         <div class="tips-box">
+          <div class="tip-item">✅ Mantén el alcance: CRUD basico sin backend</div>
+          <div class="tip-item">✅ Define estructura obligatoria y pide el arbol primero</div>
           <div class="tip-item">✅ Revisa cada archivo antes de aplicar</div>
           <div class="tip-item">✅ Usa <code>Keep</code> / <code>Discard</code> en cada diff</div>
           <div class="tip-item">⚠️ Itera con follow-ups si falta algo</div>
@@ -547,7 +550,7 @@
           <span class="pill-plus">+</span>
           <span class="pill format">Formato esperado</span>
         </div>
-        <small>"Actua como mentor de Angular. Estoy creando un modulo de usuarios. Dame los archivos minimos para listar y crear usuarios en formato de checklist."</small>
+        <small>"Actua como mentor de Angular. Necesito un modulo de usuarios. Devuelve primero el arbol de archivos exacto, luego genera codigo archivo por archivo y cierra con checklist de validacion."</small>
       </div>
     </div>
   </ng-container>
