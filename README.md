@@ -1,59 +1,77 @@
-# IaPresentation
+# IA Presentation
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+## Descripcion real del producto
 
-## Development server
+Aplicacion web en Angular que muestra una presentacion interactiva sobre Inteligencia Artificial y GitHub Copilot.
 
-To start a local development server, run:
+## Objetivo del proyecto
 
-```bash
-ng serve
-```
+Facilitar una sesion de formacion con slides visuales, navegacion simple y soporte responsive para desktop y movil.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades clave
 
-## Code scaffolding
+- Presentacion de 9 slides tematicas.
+- Navegacion por flechas, teclado y puntos.
+- Barra de progreso y contador de slide.
+- Diseno responsive con estilos SCSS.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Stack tecnico
 
-```bash
-ng generate component component-name
-```
+- Angular 21
+- TypeScript 5
+- SCSS
+- Angular CLI
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Requisitos
 
-```bash
-ng generate --help
-```
+- Node.js 20 o superior
+- npm 10 o superior
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Instalacion y uso
 
 ```bash
-ng test
+npm install
+npm start
 ```
 
-## Running end-to-end tests
+Abrir `http://localhost:4200`.
 
-For end-to-end (e2e) testing, run:
+## Build de produccion
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Salida: `dist/ia-presentation/browser`.
 
-## Additional Resources
+## Scripts disponibles
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `npm start`: servidor de desarrollo.
+- `npm run build`: build de produccion.
+- `npm run watch`: build en modo watch.
+- `npm test`: pruebas del proyecto.
+
+## Estructura principal
+
+```text
+src/
+	app/
+		app.ts
+		app.html
+		app.scss
+		components/slide/
+		slides/slides.data.ts
+	styles.scss
+	index.html
+```
+
+## Personalizacion del contenido (slides)
+
+Editar `src/app/slides/slides.data.ts` para cambiar titulos, subtitulos, orden y cantidad de slides.
+
+## Despliegue en Netlify
+
+Configurado en `netlify.toml`:
+
+- Build command: `npm run build`
+- Publish directory: `dist/ia-presentation/browser`
