@@ -11,8 +11,10 @@
 .progress-bar {
   position: fixed;
   top: 12px;
-  left: 16px;
-  right: 16px;
+  left: 50%;
+  right: auto;
+  width: min(calc(100% - 32px), 1120px);
+  transform: translateX(-50%);
   height: 8px;
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.8);
@@ -47,7 +49,7 @@
 
 .slide-stage {
   position: fixed;
-  inset: 0;
+  inset: 20px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +58,7 @@
 .slide-stage > app-slide {
   display: block;
   width: min(100%, 1120px);
-  height: 100%;
+  height: calc(100% - 20px);
 }
 
 .nav-arrows {
@@ -186,6 +188,8 @@
 
   .progress-bar {
     top: 10px;
+    width: auto;
+    transform: none;
     left: 12px;
     right: 12px;
     height: 7px;
