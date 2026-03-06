@@ -1,50 +1,49 @@
-$blue: #0070F3;
-$text: #1A1A2E;
-$text-muted: #6B7280;
-$surface: #FFFFFF;
-$surface-alt: #F5F5F7;
-$border: #E5E7EB;
-
 :host {
   display: block;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: $surface;
+  background: transparent;
 }
 
-// ── Progress bar ────────────────────────────────────────
 .progress-bar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: $border;
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
   z-index: 100;
+  overflow: hidden;
 
   .progress-fill {
     height: 100%;
-    background: $blue;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 0 3px 3px 0;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: var(--radius-pill);
   }
 }
 
-// ── Slide counter ───────────────────────────────────────
 .slide-counter {
   position: fixed;
-  top: 18px;
+  top: 30px;
   right: 24px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: $text-muted;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--color-ink-soft);
+  font-family: var(--font-display);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
   z-index: 100;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
-// ── Slide stage ─────────────────────────────────────────
 .slide-stage {
   position: fixed;
   inset: 0;
@@ -53,73 +52,149 @@ $border: #E5E7EB;
   justify-content: center;
 }
 
-// ── Navigation arrows ───────────────────────────────────
 .nav-arrows {
   position: fixed;
-  bottom: 32px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 14px;
+  padding: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
   z-index: 100;
 }
 
 .nav-btn {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: 1.5px solid $border;
-  background: $surface;
+  border: 1.5px solid var(--color-border);
+  background: linear-gradient(160deg, #ffffff 0%, var(--color-surface-soft) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: $text;
-  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  color: var(--color-ink);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
   &:hover:not(:disabled) {
-    background: $blue;
-    border-color: $blue;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 112, 243, 0.3);
-    transform: scale(1.08);
+    box-shadow: var(--shadow-pop);
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  &:focus-visible {
+    outline-offset: 2px;
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.4;
+    filter: grayscale(0.25);
     cursor: default;
   }
 
   svg { display: block; }
 }
 
-// ── Dot navigation ──────────────────────────────────────
 .dot-nav {
   position: fixed;
-  bottom: 36px;
-  right: 28px;
+  bottom: 26px;
+  right: 22px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
+  padding: 9px 8px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
   z-index: 100;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: $border;
+  background: var(--color-border-strong);
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 
   &.active {
-    background: $blue;
-    transform: scale(1.3);
+    background: var(--color-primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(21, 112, 239, 0.16);
   }
 
   &:hover:not(.active) {
-    background: #C8CDD6;
+    background: var(--color-ink-soft);
+  }
+
+  &:focus-visible {
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slide-counter {
+    top: 28px;
+    right: 18px;
+  }
+
+  .dot-nav {
+    right: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .progress-bar {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    height: 7px;
+  }
+
+  .slide-counter {
+    top: 24px;
+    right: 14px;
+    font-size: 0.7rem;
+    padding: 3px 9px;
+  }
+
+  .nav-arrows {
+    bottom: 14px;
+    gap: 10px;
+    padding: 7px;
+  }
+
+  .nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .dot-nav {
+    bottom: 16px;
+    right: 10px;
+    gap: 7px;
+    padding: 8px 6px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+@media (max-width: 560px) {
+  .dot-nav {
+    display: none;
   }
 }

@@ -1,7 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+:root {
+  --font-body: 'Nunito Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Baloo 2', 'Nunito Sans', 'Segoe UI', sans-serif;
+  --font-code: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  --color-ink-strong: #1a2442;
+  --color-ink: #25345f;
+  --color-ink-soft: #5e6f96;
+
+  --color-primary: #1570ef;
+  --color-primary-soft: #e8f1ff;
+  --color-accent: #ff8f3d;
+
+  --color-success: #12966f;
+  --color-danger: #dc4f64;
+
+  --color-surface: #ffffff;
+  --color-surface-soft: #f4f7ff;
+  --color-surface-muted: #ecf1ff;
+  --color-border: #d9e2fb;
+  --color-border-strong: #b9caf6;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 8px 28px rgba(18, 45, 114, 0.12);
+  --shadow-pop: 0 12px 36px rgba(17, 65, 173, 0.2);
 }
 
 html, body {
@@ -10,14 +39,19 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #FFFFFF;
-  color: #1A1A2E;
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(21, 112, 239, 0.2) 0%, rgba(21, 112, 239, 0) 48%),
+    radial-gradient(circle at 88% 22%, rgba(255, 143, 61, 0.18) 0%, rgba(255, 143, 61, 0) 50%),
+    linear-gradient(155deg, #f6f9ff 0%, #eef4ff 48%, #f9fbff 100%);
+  color: var(--color-ink-strong);
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
+  color: var(--color-ink-strong);
+  letter-spacing: 0.01em;
 }
 
 p, span, li, small {
@@ -28,15 +62,29 @@ button {
   font-family: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid rgba(21, 112, 239, 0.45);
+  outline-offset: 3px;
+}
+
 ::selection {
-  background: rgba(0, 112, 243, 0.2);
+  background: rgba(21, 112, 239, 0.24);
 }
 
 /* Scrollbar (for content that overflows inside slides) */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E7EB;
-  border-radius: 4px;
+  background: #c6d4fb;
+  border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
