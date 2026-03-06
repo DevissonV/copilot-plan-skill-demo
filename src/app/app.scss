@@ -155,6 +155,13 @@
 }
 
 @media (max-width: 768px) {
+  .slide-stage {
+    align-items: stretch;
+    padding: 44px 10px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .progress-bar {
     top: 10px;
     left: 12px;
