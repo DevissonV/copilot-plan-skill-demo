@@ -1162,6 +1162,19 @@ $radius-sm: var(--radius-sm);
   }
 }
 
+.closing-author {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: $text-muted;
+  font-family: var(--font-display);
+
+  strong {
+    color: $text;
+    font-weight: 800;
+  }
+}
+
 @media (max-width: 1024px) {
   .slide {
     padding: 44px 30px 82px;
@@ -1250,7 +1263,8 @@ $radius-sm: var(--radius-sm);
   .gen-card p,
   .copilot-card p,
   .prompt-card p,
-  .do-dont-col li {
+  .do-dont-col li,
+  .closing-author {
     font-size: 0.8rem;
   }
 }
